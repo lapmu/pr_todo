@@ -1,10 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -15,31 +15,36 @@ body{
   align-items: center;
 }
 
-header{
+header {
   flex: 1;
   width: 100%;
-  background-color: #6DAFD3;
+  background-color: #6dafd3;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-main{
+main {
   flex: 9;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  overflow: auto;
 }
 
-h1{
+a {
+  text-decoration: none;
+}
+
+h1 {
   flex: 8;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Con{
+.Con {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +52,7 @@ h1{
   height: 80%;
 }
 
-.menu{
+.menu {
   flex: 1;
   display: flex;
   flex-direction: column;

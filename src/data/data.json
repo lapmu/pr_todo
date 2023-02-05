@@ -1,0 +1,58 @@
+{
+  "data": {
+    "name": "lapmu",
+    "pre-todo": {
+      "2023.2.3": [
+        {
+          "id": 1,
+          "state": true,
+          "body": "아첨복 하기"
+        },
+        {
+          "id": 2,
+          "state": true,
+          "body": "내전 하기"
+        }
+      ],
+      "2023.2.4": [
+        {
+          "id": 1,
+          "state": true,
+          "body": "데가 하기"
+        },
+        {
+          "id": 2,
+          "state": true,
+          "body": "아첨복 하기"
+        }
+      ]
+    },
+    "now-todo": [
+      {
+        "id": "b39ce7b8-8b71-493a-85e2-ad62f6e74891",
+        "state": false,
+        "body": "qwdqwdqwd"
+      },
+      {
+        "id": "2e014875-0b3e-45ba-af35-34a56825e1a8",
+        "state": false,
+        "body": "dwadsdwad"
+      },
+      {
+        "id": "2d318242-a460-460c-bee6-00c242594a69",
+        "state": false,
+        "body": "dwadsdwad"
+      },
+      {
+        "id": 1,
+        "state": false,
+        "body": "todo 기능 완성하기"
+      },
+      {
+        "id": 2,
+        "state": false,
+        "body": "아첨복 하기"
+      }
+    ]
+  }
+}
