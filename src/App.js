@@ -86,6 +86,22 @@ function App() {
       .catch((err) => console.log(Error, err));
   };
 
+  const editTodo = (idx, body) => {
+    const newData = { ...data };
+    newData["nowtodo"][idx].body = body;
+    setData(newData);
+    console.log(newData);
+    fetch("http://localhost:3001/data", {
+      method: "PUT",
+      body: JSON.stringify(newData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => console.log("good"))
+      .catch((err) => console.log(Error, err));
+  };
+
   return (
     <BrowserRouter>
       <MainContainer>
@@ -102,6 +118,7 @@ function App() {
                   onTodo={onTodo}
                   changeState={changeState}
                   deleteTodo={deleteTodo}
+                  editTodo={editTodo}
                 />
               }
             />

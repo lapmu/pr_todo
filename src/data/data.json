@@ -30,12 +30,12 @@
     "nowtodo": [
       {
         "id": "54d96752-2473-447f-b18e-bdb7eb07ebbd",
-        "state": false,
-        "body": "아첨복 안하기"
+        "state": true,
+        "body": "디비전 안하기"
       },
       {
         "id": 2,
-        "state": false,
+        "state": true,
         "body": "아첨복 하기"
       }
     ]

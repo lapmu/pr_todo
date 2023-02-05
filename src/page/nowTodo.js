@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import List from "../components/List";
 
 const NowTodoContainer = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const TodoInput = styled.input`
   padding: 3%;
 `;
 
-const NowTodo = ({ data, onTodo, changeState, deleteTodo }) => {
+const NowTodo = ({ data, onTodo, changeState, deleteTodo, editTodo }) => {
   const [value, setValue] = useState("");
 
   const onChangeValue = (e) => {
@@ -35,13 +36,6 @@ const NowTodo = ({ data, onTodo, changeState, deleteTodo }) => {
     }
   };
 
-  const stateHandle = (e) => {
-    changeState(Number(e.target.className));
-  };
-
-  const deleteHandle = (e) => {
-    deleteTodo(Number(e.target.className));
-  };
   return (
     <NowTodoContainer>
       <TodoInput
@@ -55,13 +49,13 @@ const NowTodo = ({ data, onTodo, changeState, deleteTodo }) => {
         {data.map((el, idx) => {
           return (
             <DateMapContainer key={idx}>
-              <div className={`${idx}`} onClick={stateHandle}>
-                {el.state ? "🟢" : "🔴"}
-              </div>
-              <div>{el.body}</div>
-              <div className={`${idx}`} onClick={deleteHandle}>
-                🗑
-              </div>
+              <List
+                idx={idx}
+                el={el}
+                changeState={changeState}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+              ></List>
             </DateMapContainer>
           );
         })}
