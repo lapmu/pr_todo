@@ -21,8 +21,8 @@ const MainContainer = styled.div`
 function App() {
   const [data, setData] = useState({
     name: null,
-    "pre-todo": {},
-    "now-todo": [],
+    pretodo: {},
+    nowtodo: [],
   });
 
   useEffect(() => {
@@ -41,7 +41,7 @@ function App() {
       body,
     };
     const newData = { ...data };
-    newData["now-todo"].unshift(newTodo);
+    newData["nowtodo"].unshift(newTodo);
     setData(newData);
     fetch("http://localhost:3001/data", {
       method: "PUT",
@@ -49,7 +49,41 @@ function App() {
       headers: {
         "Content-Type": "application/json",
       },
-    });
+    })
+      .then((res) => console.log("good"))
+      .catch((err) => console.log(Error, err));
+  };
+
+  const changeState = (idx) => {
+    const newData = { ...data };
+    newData["nowtodo"][idx].state = !newData["nowtodo"][idx].state;
+    setData(newData);
+    fetch("http://localhost:3001/data", {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => console.log("good"))
+      .catch((err) => console.log(Error, err));
+  };
+
+  const deleteTodo = (idx) => {
+    const newData = { ...data };
+    const front = newData["nowtodo"].slice(0, idx);
+    const back = newData["nowtodo"].slice(idx + 1);
+    newData["nowtodo"] = [...front, ...back];
+    setData(newData);
+    fetch("http://localhost:3001/data", {
+      method: "PUT",
+      body: JSON.stringify(newData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => console.log("good"))
+      .catch((err) => console.log(Error, err));
   };
 
   return (
@@ -62,11 +96,18 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<NowTodo data={data["now-todo"]} onTodo={onTodo} />}
+              element={
+                <NowTodo
+                  data={data["nowtodo"]}
+                  onTodo={onTodo}
+                  changeState={changeState}
+                  deleteTodo={deleteTodo}
+                />
+              }
             />
             <Route
               path="/before"
-              element={<BeforeTodo data={data["pre-todo"]} />}
+              element={<BeforeTodo data={data["pretodo"]} />}
             />
             <Route path="/nav" element={<Nav />} />
           </Routes>

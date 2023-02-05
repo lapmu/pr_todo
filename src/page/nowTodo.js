@@ -21,7 +21,7 @@ const TodoInput = styled.input`
   padding: 3%;
 `;
 
-const NowTodo = ({ data, onTodo }) => {
+const NowTodo = ({ data, onTodo, changeState, deleteTodo }) => {
   const [value, setValue] = useState("");
 
   const onChangeValue = (e) => {
@@ -36,7 +36,11 @@ const NowTodo = ({ data, onTodo }) => {
   };
 
   const stateHandle = (e) => {
-    console.log(e);
+    changeState(Number(e.target.className));
+  };
+
+  const deleteHandle = (e) => {
+    deleteTodo(Number(e.target.className));
   };
   return (
     <NowTodoContainer>
@@ -51,11 +55,13 @@ const NowTodo = ({ data, onTodo }) => {
         {data.map((el, idx) => {
           return (
             <DateMapContainer key={idx}>
-              <div key={idx} onClick={stateHandle}>
+              <div className={`${idx}`} onClick={stateHandle}>
                 {el.state ? "🟢" : "🔴"}
               </div>
               <div>{el.body}</div>
-              <div>🗑</div>
+              <div className={`${idx}`} onClick={deleteHandle}>
+                🗑
+              </div>
             </DateMapContainer>
           );
         })}
