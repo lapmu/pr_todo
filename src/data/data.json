@@ -29,13 +29,23 @@
     },
     "nowtodo": [
       {
+        "id": "785b47de-6f39-4513-ae22-040e8e2bda59",
+        "state": false,
+        "body": "qwqwfasfa"
+      },
+      {
+        "id": "397a1e9e-7259-4982-8b42-87008ce243f5",
+        "state": false,
+        "body": "qwdfasfasfasf"
+      },
+      {
         "id": "54d96752-2473-447f-b18e-bdb7eb07ebbd",
-        "state": true,
+        "state": false,
         "body": "디비전 안하기"
       },
       {
         "id": 2,
-        "state": true,
+        "state": false,
         "body": "아첨복 하기"
       }
     ]

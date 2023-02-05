@@ -52,6 +52,7 @@ function App() {
     })
       .then((res) => console.log("good"))
       .catch((err) => console.log(Error, err));
+    window.location.reload();
   };
 
   const changeState = (idx) => {
@@ -84,6 +85,7 @@ function App() {
     })
       .then((res) => console.log("good"))
       .catch((err) => console.log(Error, err));
+    window.location.reload();
   };
 
   const editTodo = (idx, body) => {
