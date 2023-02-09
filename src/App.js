@@ -61,7 +61,7 @@ function App() {
     setData(newData);
     fetch("http://localhost:3001/data", {
       method: "PUT",
-      body: JSON.stringify(data),
+      body: JSON.stringify(newData),
       headers: {
         "Content-Type": "application/json",
       },
@@ -72,9 +72,8 @@ function App() {
 
   const deleteTodo = (idx) => {
     const newData = { ...data };
-    const front = newData["nowtodo"].slice(0, idx);
-    const back = newData["nowtodo"].slice(idx + 1);
-    newData["nowtodo"] = [...front, ...back];
+    const filtered = newData["nowtodo"].filter((el, idnx) => idx !== idnx);
+    newData["nowtodo"] = [...filtered];
     setData(newData);
     fetch("http://localhost:3001/data", {
       method: "PUT",
@@ -92,7 +91,6 @@ function App() {
     const newData = { ...data };
     newData["nowtodo"][idx].body = body;
     setData(newData);
-    console.log(newData);
     fetch("http://localhost:3001/data", {
       method: "PUT",
       body: JSON.stringify(newData),

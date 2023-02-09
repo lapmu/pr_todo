@@ -20,9 +20,9 @@ const List = ({ idx, el, changeState, deleteTodo, editTodo }) => {
 
   const unEditHandel = (e) => {
     if (e.key === "Enter") {
+      editTodo(idx, editValue);
       setValue(editValue);
       setEdit(!edit);
-      editTodo(idx, value);
     }
   };
 
